@@ -1,0 +1,34 @@
+"""
+import urllib2
+url = 'http://mangareader.net/naruto/696'
+data = urllib2.urlopen(url)
+
+"""
+chap_pages = []
+
+def validate_url(url):
+    """
+        Test if an url opened with urllib2 return a 200 code or 404
+    """
+    if url.code == 200:
+        return true
+    else:
+        return false
+
+
+def get_chapter_pages(source):
+    """
+    'source' is the result of urllib2.urlopen funct 
+    a valid page of the chapter can be used for retrieving it
+    retrieve the page number and the url of the different page in the chapter
+    """
+    content = source.read()
+    chap_pages = []
+    tmp = content.find(id='pageMenu')
+    for option in tmp.find_all('option'):
+        chap_pages.append(option['value']
+
+def download_page_img():
+    for url in chap_pages:
+        page_url = main_url + url
+        page = urllib2.urlopen(page_url)
