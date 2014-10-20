@@ -1,8 +1,8 @@
 PyManga helps you download your favorite manga from mangareader
 
-Usage
+##Usage
 
-Install requirements before starting
+#####Install requirements before starting
 ```shell
 sudo pip install -r requirements.txt
 ```
