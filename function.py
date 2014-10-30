@@ -3,6 +3,7 @@ __author__ = 'nmtsylla'
 from bs4 import BeautifulSoup as BS
 import urllib2
 from optparse import OptionParser
+import os
 
 parser = OptionParser()
 parser.add_option("-m", "--manga", dest="manga",
@@ -38,8 +39,14 @@ def get_chapter_pages(source):
     content = source.read()
     data = BS(content, 'html')
     slct = data.find(id='pageMenu')
-    for option in slct.find_all('option'):
-        chap_pages.append(option['value'])
+    try:
+        for option in slct.find_all('option'):
+            chap_pages.append(option['value'])
+    except:
+	    print 'Chapitre ou manga inexistant!'
+	    exit(0)
+
+>>>>>>> 11db0e83bcab48e6d790273e3badb0313a87c969
 
 
 def download_page(page_url):
@@ -62,7 +69,7 @@ def write_to_file(img_data, page):
 
 
 def save_img(num_page, page_url):
-    page = options.manga + '_' + options.chapter + '_' + str(num_page) + '.jpg'
+    page = str(num_page) + '.jpg'
     img = download_page(page_url)
     img_data = extract_img(img)
     write_to_file(img_data, page)
@@ -70,8 +77,16 @@ def save_img(num_page, page_url):
 
 def download_chapter():
     num_page = 1
+    dir_name = options.manga+'_'+options.chapter
+    manga_dir(dir_name)
     for page_url in chap_pages:
         save_img(num_page, page_url)
         num_page += 1
 
 
+def manga_dir(name):
+    try:
+        os.mkdir(name)
+        os.chdir(name)
+    except:
+	pass #TODO
