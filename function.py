@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup as BS
 import urllib2
 from optparse import OptionParser
 import os
+import sys
 
 parser = OptionParser()
 parser.add_option("-m", "--manga", dest="manga",
@@ -44,7 +45,7 @@ def get_chapter_pages(source):
             chap_pages.append(option['value'])
     except:
 	    print 'Chapitre ou manga inexistant!'
-	    exit(0)
+	    sys.exit(0)
 
 
 def download_page(page_url):
