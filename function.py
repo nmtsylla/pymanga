@@ -8,7 +8,9 @@ import sys
 
 parser = OptionParser()
 parser.add_option("-m", "--manga", dest="manga",
-                  help="Name of the manga")
+                  help="""Name of the manga
+                  For manga which name is separated by space like 'one piece', 'fairy tail' or 'shingeki-no-kyojin'
+                  use '-' to separate term so for one piece we'll have one-piece, for shingeki no kyojin: shingeki-no-kyojin""")
 parser.add_option("-c", "--chapter", dest="chapter",
                   help="Chapter number")
 parser.set_defaults(m='one-piece')
