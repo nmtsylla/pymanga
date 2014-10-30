@@ -50,12 +50,12 @@ def get_chapter_pages(source):
 def download_page(page_url):
     link = base_url + page_url
     page_data = urllib2.urlopen(link)
-    img = BS(page_data.read(), 'html')
-    return img
+    page = BS(page_data.read(), 'html')
+    return page
 
 
-def extract_img(img):
-    img_src = img.find(id='img')['src']
+def extract_img(page):
+    img_src = page.find(id='img')['src']
     img_data = urllib2.urlopen(img_src)
     return img_data
 
