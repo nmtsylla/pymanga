@@ -37,8 +37,8 @@ def get_chapter_pages(source):
     """
     content = source.read()
     data = BS(content, 'html')
-    tmp = data.find(id='pageMenu')
-    for option in tmp.find_all('option'):
+    slct = data.find(id='pageMenu')
+    for option in slct.find_all('option'):
         chap_pages.append(option['value'])
 
 
@@ -50,7 +50,7 @@ def download_page(page_url):
 
 
 def extract_img(img):
-    img_src = img.find(id='imgholder').find('img')['src']
+    img_src = img.find(id='img')['src']
     img_data = urllib2.urlopen(img_src)
     return img_data
 
