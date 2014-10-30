@@ -34,7 +34,6 @@ def validate_url(url):
 def get_chapter_pages(source):
     """
     'source' is the result of urllib2.urlopen funct 
-    a valid page of the chapter can be used for retrieving it
     retrieve the page number and the url of the different page in the chapter
     """
     content = source.read()
