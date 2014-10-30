@@ -46,8 +46,6 @@ def get_chapter_pages(source):
 	    print 'Chapitre ou manga inexistant!'
 	    exit(0)
 
->>>>>>> 11db0e83bcab48e6d790273e3badb0313a87c969
-
 
 def download_page(page_url):
     link = base_url + page_url
