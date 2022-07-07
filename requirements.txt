@@ -2,6 +2,6 @@ BeautifulSoup==3.2.1
 argparse==1.2.1
 beautifulsoup4==4.3.2
 httplib2==0.8
-requests==2.2.1
+requests==2.20.0
 urllib3==1.7.1
 
